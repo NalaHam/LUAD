@@ -1,0 +1,20 @@
+library(plyr)
+
+LUAD.list <- list(LUAD_F,LUAD_M)
+count(LUAD_F, "Chromosome")
+count(LUAD_M, "Chromosome")
+count(LUAD_M2, "chromosome")
+nrow(LUAD_F)
+X_over_total_F <- 2/64
+nrow(LUAD_M)
+X_over_total_M <- 11/139
+counts <- table(X_over_total_F, X_over_total_M)
+
+
+
+Mutations_2 <- c(X_over_total_F, X_over_total_M)
+
+barplot(Mutations_2, main = "X Chromosome Mutations in M vs. F",
+        xlab = "X chromosome CNV over total CNV", 
+        names.arg = c("Female", "Male"), 
+        col = "darkred")
